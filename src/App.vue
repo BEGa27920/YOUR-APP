@@ -11,6 +11,7 @@ import load from "@/services/load";
 export default class App extends Vue {
   created() {
     load.load(this);
+    console.log(this.$route.query);
   }
 }
 </script>
