@@ -1,0 +1,354 @@
+@import "assets/scss/class";
+@import "assets/scss/colors";
+
+.fj-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__container {
+    --svg-size: 18px;
+
+    position: relative;
+    z-index: 2;
+    @extend .card-2;
+    width: auto;
+    border-radius: 0 0 28px 28px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0px 1px -2px rgb(0 0 0 / 20%), 0 0px 2px 0 rgb(0 0 0 / 14%),
+      0 0px 5px 0 rgb(0 0 0 / 12%) !important;
+
+    @include dark-mode {
+      @extend .card-4;
+    }
+  }
+
+  &__left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+
+    &__item {
+      position: relative;
+      display: inline-flex;
+      box-sizing: border-box;
+      padding: 10px;
+      color: var(--text-color--2);
+      transition: color 0.15s;
+
+      > svg {
+        --svg-size: 22px;
+        width: var(--svg-size);
+        height: var(--svg-size);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: currentColor;
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity 0.15s;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(50%);
+        background-color: transparent;
+        transition: background-color 0.15s;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+      }
+
+      &:hover {
+        color: var(--primary);
+        &::before {
+          opacity: 0.1 !important;
+        }
+      }
+
+      &.router-link-active {
+        color: var(--primary);
+        &::before {
+          opacity: 0;
+        }
+        &::after {
+          background-color: var(--primary);
+        }
+      }
+    }
+
+    &__hr {
+      background-color: var(--text-color--2);
+      width: 1px;
+      align-self: stretch;
+      margin: 10px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    // min-height: 44px;
+  }
+
+  &__btn-menu {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    & > svg {
+      color: var(--primary);
+      width: var(--svg-size);
+      height: var(--svg-size);
+    }
+
+    @include xl {
+      display: none;
+    }
+  }
+
+  &__btn-login {
+    --color-gg: #4285f4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10px;
+    color: white;
+    border: 1px solid var(--color-gg);
+    border-radius: 4px;
+    background-color: var(--color-gg);
+    user-select: none;
+    cursor: pointer;
+    font-size: smaller;
+    letter-spacing: 0.4px;
+
+    & > svg {
+      margin-right: 10px;
+      --size: 20px;
+      width: var(--size);
+      height: var(--size);
+      background-color: currentColor;
+      border-radius: 3px;
+      padding: 10px;
+    }
+  }
+
+  @mixin item-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  &__button {
+    @include item-button();
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+    & > svg {
+      color: var(--primary);
+    }
+
+    &.state-cloud {
+      position: relative;
+
+      > svg,
+      > .fj-progress-spinner {
+        color: var(--primary);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        margin: auto;
+
+        transition: opacity 0.3s;
+      }
+    }
+  }
+
+  &__profile-user {
+    display: inline-flex;
+    align-items: center;
+
+    &__avatar {
+      position: relative;
+      display: flex;
+      @include item-button();
+
+      & > img,
+      &__filter {
+        @include item-button();
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        user-select: none;
+      }
+
+      &__filter {
+        z-index: 1;
+        position: absolute;
+      }
+    }
+  }
+
+  &__bg-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background: linear-gradient(
+      180deg,
+      rgba($bg-color, 1) 0%,
+      rgba($bg-color, 1) 50%,
+      rgba($bg-color, 0.8) 70%,
+      rgba($bg-color, 0.2) 100%
+    );
+
+    @include dark-mode {
+      background: linear-gradient(
+        180deg,
+        rgba($bg-color--dark, 1) 0%,
+        rgba($bg-color--dark, 1) 50%,
+        rgba($bg-color--dark, 0.8) 70%,
+        rgba($bg-color--dark, 0.2) 100%
+      );
+    }
+  }
+
+  &__g-search {
+    display: flex;
+    align-items: center;
+    @extend .card-2;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 0 0 28px 28px;
+    box-shadow: none !important;
+    border: 1px solid rgba(#000000, 0);
+    border-width: 0 !important;
+    cursor: text;
+
+    > svg {
+      color: var(--primary);
+      width: var(--svg-size);
+      height: var(--svg-size);
+    }
+
+    &--arrow-left {
+      order: 1;
+      display: none;
+
+      .active & {
+        display: block;
+      }
+    }
+    &--search-icon {
+      order: 1;
+
+      .active & {
+        order: 3;
+      }
+    }
+
+    > input {
+      order: 2;
+      flex: 1;
+      display: none;
+      margin-left: 0;
+      outline: none;
+      border: none;
+      border-radius: 0;
+      padding: 0 12px;
+      background-color: transparent;
+      color: currentColor;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: var(--svg-size);
+    }
+
+    &.active {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+
+      > svg {
+        padding: 10px;
+
+        &.fj-header__g-search--arrow-left {
+          padding-left: 0;
+        }
+      }
+
+      > input {
+        display: block;
+      }
+    }
+
+    @include dark-mode {
+      border-color: rgba(#ffffff, 0);
+      @extend .card-4;
+    }
+
+    @include md {
+      border-radius: 28px;
+      padding: 9px;
+      border-width: 1px !important;
+      background-color: rgba(#000000, 0.05) !important;
+      .active &--arrow-left {
+        display: none;
+      }
+      .active &--search-icon {
+        order: 1;
+      }
+      > input {
+        display: block;
+      }
+      &.active {
+        position: relative;
+        > svg {
+          padding: 0;
+        }
+      }
+      &.focus {
+        background-color: rgba($primary--light, 0.03) !important;
+        border-color: rgba($primary--light, 0.6);
+      }
+
+      @include dark-mode {
+        background-color: rgba(#ffffff, 0.1) !important;
+        &.focus {
+          background-color: rgba($primary--dark, 0.06) !important;
+          border-color: rgba($primary--dark, 0.5);
+        }
+      }
+    }
+  }
+}

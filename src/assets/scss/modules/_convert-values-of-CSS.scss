@@ -1,0 +1,106 @@
+@import "@/assets/scss/_class.scss";
+
+#YzQ4M2E5NmItNzMwNC00NDA4LTg2MGYtNjk0YzZiMjQxN2Y0 {
+  .content {
+    --item-length: 1;
+    --item-space: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: calc(var(--item-space) * -1);
+    
+    @include md {
+      --item-length: 2;
+      --item-space: 1rem;
+    }
+    @include xl {
+      --item-length: 3;
+    }
+  }
+  .g-label-cal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    
+    @include md {
+      width: calc(100% / var(--item-length) - var(--item-space) * 2);
+      margin: var(--item-space);
+    }
+
+    > label {
+      display: block;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: large;
+      margin-bottom: 0.5rem;
+    }
+
+    &__input {
+      --line-height: 2rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      border: 1px solid;
+      @include border-color--1;
+      padding: 10px 56px;
+      border-radius: 0.2rem;
+
+      > input {
+        color: currentColor;
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        line-height: var(--line-height);
+        font-size: 1.5rem;
+        padding: 0;
+        font-family: var(--bs-font-monospace);
+        text-align: center;
+        color: var(--primary);
+
+        -moz-appearance: textfield;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+      > span {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        z-index: 1;
+        opacity: 0.6;
+      }
+
+      > span:nth-child(1) {
+        width: var(--line-height);
+        height: var(--line-height);
+        padding: 8px 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        border-radius: 8px;
+        > svg {
+          width: 100%;
+          height: 100%;
+        }
+
+        &:hover {
+          color: var(--primary);
+          opacity: 1;
+        }
+      }
+
+      > span:nth-child(3) {
+        left: unset;
+        right: 10px;
+        text-transform: uppercase;
+        font-size: 1rem;
+        line-height: var(--line-height);
+        cursor: default;
+      }
+    }
+  }
+}

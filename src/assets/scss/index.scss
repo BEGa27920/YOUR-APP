@@ -1,0 +1,39 @@
+@import "fonts";
+@import "../../../node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "../../../node_modules/bootstrap/scss/bootstrap-utilities.scss";
+@import "components/common";
+@import "colors";
+@import "class";
+
+:root {
+  --bg-color: #{$bg-color};
+  --text-color: #{$text-color};
+  --text-color--2: #{$text-color--2};
+  --yellow: #{$yellow--light};
+  --blue: #{$blue--light};
+  --purple: #{$purple--light};
+  --green: #{$green--light};
+  --orange: #{$orange--light};
+  --primary: #{$primary--light};
+
+  body.dark-mode,
+  body.system-dark {
+    --bg-color: #{$bg-color--dark};
+    --text-color: #{$text-color--dark};
+    --text-color--2: #{$text-color--2--dark};
+    --yellow: #{$yellow--dark};
+    --blue: #{$blue--dark};
+    --purple: #{$purple--dark};
+    --green: #{$green--dark};
+    --orange: #{$orange--dark};
+    --primary: #{$primary--dark};
+  }
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
