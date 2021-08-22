@@ -11,7 +11,10 @@ import load from "@/services/load";
 export default class App extends Vue {
   created() {
     load.load(this);
-    console.log(this.$route.query);
+
+    const link = this.$route.query.link;
+    if (link) this.$router.push(String(link));
+    console.log(link);
   }
 }
 </script>
