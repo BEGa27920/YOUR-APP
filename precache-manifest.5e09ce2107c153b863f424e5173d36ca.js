@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/404.html"
   },
   {
-    "revision": "0cee512258ab6ab7c711",
+    "revision": "af3859e470aeb9f91ce7",
     "url": "/css/app.f27dedc7.css"
   },
   {
@@ -48,12 +48,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/menu-burger-solid.202991d1.svg"
   },
   {
-    "revision": "8b7bbb93fc6299f5e260a4e1a6fb1346",
+    "revision": "729be4ad0654f5a1a537e21112f3013e",
     "url": "/index.html"
   },
   {
-    "revision": "0cee512258ab6ab7c711",
-    "url": "/js/app.befe186a.js"
+    "revision": "af3859e470aeb9f91ce7",
+    "url": "/js/app.5149f1b1.js"
   },
   {
     "revision": "bb62902c3814bb9459fc",
@@ -76,8 +76,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-736c8a96.e3289b7e.js"
   },
   {
-    "revision": "fc2f4c837467344e5d75",
-    "url": "/js/chunk-vendors.06757497.js"
+    "revision": "3d53e6fcef62b8007cab",
+    "url": "/js/chunk-vendors.b77e333d.js"
   },
   {
     "revision": "2716429ad7336f6ef7482d406a3b7cdb",
