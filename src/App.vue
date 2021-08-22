@@ -12,9 +12,11 @@ export default class App extends Vue {
   created() {
     load.load(this);
 
-    const link = this.$route.query.link;
-    if (link) this.$router.push(String(link));
-    console.log(link);
+    let url: any = new URL(window.location.href);
+    url = url.search.substring(1);
+    url = Object.fromEntries(new URLSearchParams(location.search));
+    const link = url.link;
+    if (link) this.$router.push(link);
   }
 }
 </script>
